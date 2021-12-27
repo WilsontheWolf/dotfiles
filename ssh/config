@@ -1,0 +1,32 @@
+Host pi
+  HostName 10.0.0.5
+  User pi
+  # RemoteForward /home/shorty/.gnupg/S.gpg-agent /Users/shorty/.gnupg/S.gpg-agent.extra
+  # ForwardAgent yes
+  IdentityFile /home/shorty/.ssh/pi
+Host antti.codes
+  HostName antti.codes
+  User wilson
+  ForwardAgent yes
+
+Host hashbang
+  HostName de1.hashbang.sh
+  IdentitiesOnly yes
+  User wilsonthewolf
+  IdentityFile /home/shorty/.ssh/id_rsa
+
+Host phone
+  HostName 10.0.0.10
+  User mobile
+
+Host ipad
+  HostName 10.0.0.200
+  User mobile
+  
+Host macvm
+  HostName localhost
+  Port 4444
+
+Host github.com
+  HostName github.com
+  IdentityFile /home/shorty/.ssh/github
