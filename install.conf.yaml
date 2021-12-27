@@ -7,5 +7,20 @@
         create: true
     ~/.zshenv: zshenv
     ~/.zshrc: zshrc
+    ~/.profile_custom: custom
 
-
+- shell:
+  -
+    command: chsh -s $(which zsh)
+    description: Making zsh your default shell
+    quiet: true
+    stdin: true
+    stdout: true
+    stderr: true
+  -
+    command: ./setup
+    description: Setting up features
+    quiet: true
+    stdin: true
+    stdout: true
+    stderr: true

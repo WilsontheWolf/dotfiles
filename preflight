@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+
+# Ensure custom exists
+touch custom
+# Ensure dependancies are installed.
+errors=()
+for prog in zsh curl
+do
+    if ! command -v $prog &> /dev/null
+    then
+        errors+=($prog)
+    fi
+done
+if [ ${#errors[@]} -ne 0 ]
+then
+    echo "The programs below are missing! Please install them first."
+    echo "${errors[@]}"
+    exit 1
+fi
+
