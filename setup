@@ -14,4 +14,4 @@ ask () {
 ask "Do you want to set zsh as your current shell?" "chsh -s $(which zsh)" "[ $(which zsh) != $SHELL ]"
 ask "Do you want to install nvm?" "touch custom/nvm.sh && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | PROFILE='$PWD/custom/nvm.sh' bash && source '$PWD/custom/nvm.sh'" "! ls $HOME/.nvm &> /dev/null"
 ask "Do you want to install yarn?" "corepack enable && cp msic-files/yarn.sh custom/yarn.sh"  "(command -v corepack &> /dev/null) && ! (command -v yarn &> /dev/null)"
-ask "Do you want to install oh my zsh?" 'RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && cp misc-files/oh-my-zsh.sh custom/oh-my-zsh.sh &&'" cp misc-files/wilson.zsh-theme $HOME/.oh-my-zsh/custom/themes/" #"! ls $HOME/.oh-my-zsh &> /dev/null"
+ask "Do you want to install oh my zsh?" 'RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && cp misc-files/oh-my-zsh.sh custom/oh-my-zsh.sh &&'" cp misc-files/wilson.zsh-theme $HOME/.oh-my-zsh/custom/themes/" "! ls $HOME/.oh-my-zsh &> /dev/null"
