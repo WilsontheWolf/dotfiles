@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Ensure custom exists
-touch custom
+mkdir custom
 # Ensure dependancies are installed.
 errors=()
 for prog in zsh curl chsh git
