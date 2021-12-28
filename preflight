@@ -4,7 +4,7 @@
 touch custom
 # Ensure dependancies are installed.
 errors=()
-for prog in zsh curl
+for prog in zsh curl chsh git
 do
     if ! command -v $prog &> /dev/null
     then

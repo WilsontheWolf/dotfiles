@@ -1,17 +1,17 @@
 #!/usr/bin/env bash
 ask () {
-    if [ -z $3 ] && ! $3
+    if [ -z "$3" ] || eval "$3"
     then
         read -p "$1 " -n 1 -r
         echo
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
-            $2
+            eval "$2"
         fi
     fi
 }
 
-ask "Do you want to install nvm?" "curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | bash" $(command -v dnvm &> /dev/null)
-ask "empty" "echo empty"
-ask "true" "echo true" true
-ask "false" "echo false" false
+ask "Do you want to set zsh as your current shell?" "chsh -s $(which zsh)" "[ $(which zsh) != $SHELL ]"
+ask "Do you want to install nvm?" "touch custom/nvm.sh && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | PROFILE='$PWD/custom/nvm.sh' bash && source '$PWD/custom/nvm.sh'" "! ls $HOME/.nvm &> /dev/null"
+ask "Do you want to install yarn?" "corepack enable && cp msic-files/yarn.sh custom/yarn.sh"  "(command -v corepack &> /dev/null) && ! (command -v yarn &> /dev/null)"
+ask "Do you want to install oh my zsh?" 'CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && cp misc-files/oh-my-zsh.sh custom/oh-my-zsh.sh &&'" cp misc-files/wilson.zsh-theme $HOME/.oh-my-zsh/custom/themes/" #"! ls $HOME/.oh-my-zsh &> /dev/null"
