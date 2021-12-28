@@ -6,3 +6,5 @@
 	name = WilsontheWolf
 [gpg]
 	program = gpg
+[init]
+	defaultBranch = master
