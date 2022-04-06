@@ -1,3 +1,4 @@
+IdentityFile /home/shorty/.ssh/id_rsa
 Host pi
   HostName 10.0.0.5
   User pi
@@ -22,6 +23,7 @@ Host phone
 Host ipad
   HostName 10.0.0.200
   User mobile
+  Port 2222
   
 Host macvm
   HostName localhost

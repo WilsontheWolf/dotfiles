@@ -8,6 +8,7 @@
     ~/.zshrc: zshrc
     ~/.zshrc.d: custom
     ~/.nanorc: nanorc
+    ~/.nicrc: nicrc
 
 - shell:
   -
