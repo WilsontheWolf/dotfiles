@@ -25,9 +25,9 @@ Host ipad
   User mobile
   Port 2222
   
-Host macvm
-  HostName localhost
-  Port 4444
+Host ipod
+  HostName 10.0.0.12
+  User mobile
 
 Host github.com
   HostName github.com
