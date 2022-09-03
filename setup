@@ -1,17 +1,37 @@
 #!/usr/bin/env bash
+
+if [ -t 0 ]; then
+    CANASK=1
+else
+    echo "Running in non-interactive mode. Skipping questions..."
+    CANASK=0
+fi
+
 ask () {
     if [ -z "$3" ] || eval "$3"
     then
+      if [ $CANASK -eq 1 ]; then
         read -p "$1 " -n 1 -r
         echo
         if [[ $REPLY =~ ^[Yy]$ ]]
         then
             eval "$2"
         fi
-    fi
+      else
+        echo "$1 Y"
+        eval "$2"
+      fi
+    fi    
 }
 
-ask "Do you want to set zsh as your current shell?" "chsh -s $(which zsh) && echo 'You may need to reboot for this to apply!'" "[ $(which zsh) != $SHELL ]"
+ask "Do you want to set zsh as your current shell?" "chsh -s $(which zsh) && echo 'You may need to reboot for this to apply!'" "[ $(which zsh) != $SHELL ] && [ $CANASK -eq 1 ]"
 ask "Do you want to install nvm?" "touch custom/nvm.sh && curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/master/install.sh | PROFILE='$PWD/custom/nvm.sh' bash && source '$PWD/custom/nvm.sh' && nvm install --lts" "! ls $HOME/.nvm &> /dev/null"
 ask "Do you want to install yarn?" "corepack enable && cp misc-files/yarn.sh custom/yarn.sh"  "(command -v corepack &> /dev/null) && ! (command -v yarn &> /dev/null)"
 ask "Do you want to install oh my zsh?" 'RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" && cp misc-files/oh-my-zsh.sh custom/oh-my-zsh.sh &&'" cp misc-files/wilson.zsh-theme $HOME/.oh-my-zsh/custom/themes/" "! ls $HOME/.oh-my-zsh &> /dev/null"
+
+if [ "$(whoami)" == "codespace"  ]; then
+    echo "Running in codespace. Performing codespace setup..."
+    rm ~/.zshrc && ln -s ./zshrc ~/.zshrc
+    cp misc-files/oh-my-zsh.sh custom/oh-my-zsh.sh
+    cp misc-files/wilson.zsh-theme $HOME/.oh-my-zsh/custom/themes/
+fi

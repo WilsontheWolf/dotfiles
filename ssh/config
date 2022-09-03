@@ -26,7 +26,7 @@ Host ipad
   Port 2222
   
 Host ipod
-  HostName 10.0.0.12
+  HostName 10.0.0.165
   User mobile
 
 Host github.com
