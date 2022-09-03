@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
-
 if [ -t 0 ]; then
     CANASK=1
 else
@@ -31,7 +30,11 @@ ask "Do you want to install oh my zsh?" 'RUNZSH=no CHSH=no KEEP_ZSHRC=yes sh -c 
 
 if [ "$(whoami)" == "codespace"  ]; then
     echo "Running in codespace. Performing codespace setup..."
-    rm ~/.zshrc && ln -s ./zshrc ~/.zshrc
+    BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+    rm ~/.zshrc
+    ln -s $BASEDIR/zshrc ~/.zshrc
     cp misc-files/oh-my-zsh.sh custom/oh-my-zsh.sh
     cp misc-files/wilson.zsh-theme $HOME/.oh-my-zsh/custom/themes/
+    sed s/nano/code/ -i ~/.zshrc
+    sed s/@%m// -i ~/.oh-my-zsh/custom/themes/wilson.zsh-theme
 fi
