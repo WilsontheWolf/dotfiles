@@ -16,6 +16,12 @@ if [ ${#errors[@]} -ne 0 ]
 then
     echo "The programs below are missing! Please install them first."
     echo "${errors[@]}"
+    if [ "$IGNORE_PREFLIGHT" == "1" ]
+    then
+        echo "The preflight is being ignored due to the env. Procceed with caution."
+        exit 0
+    fi
+    echo 'If your sure you know what your doing, you may bypass this with "IGNORE_PREFLIGHT=1".'
     exit 1
 fi
 
