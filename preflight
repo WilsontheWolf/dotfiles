@@ -5,7 +5,7 @@ BASEDIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 mkdir $BASEDIR/custom &> /dev/null
 # Ensure dependancies are installed.
 errors=()
-for prog in zsh curl chsh git
+for prog in zsh curl chsh git tar
 do
     if ! command -v $prog &> /dev/null
     then
