@@ -1,7 +1,7 @@
 IdentityFile /home/shorty/.ssh/id_rsa
 Host pi
   HostName 10.0.0.5
-  User pi
+  User dietpi
   # RemoteForward /home/shorty/.gnupg/S.gpg-agent /Users/shorty/.gnupg/S.gpg-agent.extra
   # ForwardAgent yes
   IdentityFile /home/shorty/.ssh/pi
