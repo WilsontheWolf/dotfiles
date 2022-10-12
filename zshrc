@@ -1,6 +1,6 @@
 
 # Custom env varibles
-export EDITOR=nano
+export EDITOR=$(command -v micro || command -v nano)
 export THEOS_DEVICE_IP=phone
 export NODE_ENV=development
 
