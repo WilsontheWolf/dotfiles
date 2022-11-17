@@ -3,7 +3,7 @@ Include config-custom
 IdentityFile /home/shorty/.ssh/id_rsa
 
 Host pi
-  HostName 10.0.0.5
+  HostName home.shorty.systems
   User dietpi
   # RemoteForward /home/shorty/.gnupg/S.gpg-agent /Users/shorty/.gnupg/S.gpg-agent.extra
   # ForwardAgent yes
