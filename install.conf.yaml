@@ -5,6 +5,7 @@
     ~/.ssh/config:
         path: ssh/config
         create: true
+    ~/.ssh/config-custom: ssh/config-custom
     ~/.zshrc: zshrc
     ~/.zshrc.d: custom
     ~/.nanorc: nanorc

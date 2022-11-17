@@ -1,4 +1,7 @@
+Include config-custom
+
 IdentityFile /home/shorty/.ssh/id_rsa
+
 Host pi
   HostName 10.0.0.5
   User dietpi
@@ -32,3 +35,12 @@ Host ipod
 Host github.com
   HostName github.com
   IdentityFile /home/shorty/.ssh/github
+
+Host pc-lan
+  HostName 10.76.224.61
+  User shorty
+
+Host pc-tailscale
+  HostName 100.78.147.46
+  User shorty
+
