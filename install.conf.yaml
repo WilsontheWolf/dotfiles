@@ -1,4 +1,4 @@
-- clean: ['~']
+- clean: ['~', '~/.ssh']
 
 - link:
     ~/.gitconfig: gitconfig
