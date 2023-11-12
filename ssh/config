@@ -2,12 +2,15 @@ Include config-custom
 
 IdentityFile /home/shorty/.ssh/id_rsa
 
+AddKeysToAgent yes
+
 Host pi
   HostName home.shorty.systems
-  User dietpi
+  User shorty
   # RemoteForward /home/shorty/.gnupg/S.gpg-agent /Users/shorty/.gnupg/S.gpg-agent.extra
   # ForwardAgent yes
   IdentityFile /home/shorty/.ssh/pi
+
 Host antti.codes
   HostName antti.codes
   User wilson
@@ -24,7 +27,7 @@ Host phone
   User mobile
 
 Host ipad
-  HostName 10.0.0.200
+  HostName 10.0.0.192
   User mobile
   Port 2222
   
@@ -36,6 +39,11 @@ Host github.com
   HostName github.com
   IdentityFile /home/shorty/.ssh/github
 
+Host gitea.shorty.systems
+  HostName gitea.shorty.systems
+  IdentityFile /home/shorty/.ssh/github
+  Port 222
+
 Host pc-lan
   HostName 10.76.224.61
   User shorty
@@ -43,4 +51,3 @@ Host pc-lan
 Host pc-tailscale
   HostName 100.78.147.46
   User shorty
-
