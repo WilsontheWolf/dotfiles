@@ -32,7 +32,7 @@ function fish_prompt
 
     set -l length (string length --visible -- "$pre$post")
     set -l oneline 1
-    if test (math $COLUMNS - $length - 2) -lt 20
+    if test (math $COLUMNS - $length - 2) -lt 35
         set oneline 0
         if test (math $length + 4) -gt $COLUMNS
             set post (string join '' -- (set_color -o blue) (prompt_pwd --dir-length=2)) $git
