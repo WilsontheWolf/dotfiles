@@ -10,6 +10,8 @@
     ~/.zshrc.d: custom
     ~/.nanorc: nanorc
     ~/.nicrc: nicrc
+    ~/.config/fish/config.fish: config.fish
+    ~/.config/fish/functions: fish-functions
 
 - shell:
   -

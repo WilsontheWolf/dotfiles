@@ -39,13 +39,19 @@ Host github.com
   HostName github.com
   IdentityFile /home/shorty/.ssh/github
 
+# Legacy
 Host gitea.shorty.systems
-  HostName gitea.shorty.systems
+  HostName git.shorty.systems
+  IdentityFile /home/shorty/.ssh/github
+  Port 222
+
+ Host git.shorty.systems
+  HostName git.shorty.systems
   IdentityFile /home/shorty/.ssh/github
   Port 222
 
 Host pc-lan
-  HostName 10.76.224.61
+  HostName 10.0.0.55
   User shorty
 
 Host pc-tailscale
