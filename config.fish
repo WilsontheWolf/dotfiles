@@ -21,6 +21,16 @@ if test -d ~/.nvm
     fish_add_path -P (yarn global bin)
 end
 
+if test -d ~/theos
+    set -gx THEOS "$HOME/theos"
+end
+
+if test -d /opt/procursus
+	fish_add_path -P /opt/procursus/bin /opt/procursus/sbin /opt/procursus/games
+	set -x CPATH "$CPATH:/opt/procursus/include"
+	set -x LIBRARY_PATH "$LIBRARY_PATH:/opt/procursus/lib"
+end
+
 # Abbriviations
 abbr --add yui yarn upgrade-interactive --latest
 
