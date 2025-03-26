@@ -5,7 +5,7 @@ end
 
 # Custom env varibles
 set -gx EDITOR $(command -v micro || command -v nano)
-set -gx THEOS_DEVICE_IP phone
+set -gx THEOS_DEVICE_IP ipad
 set -gx NODE_ENV development
 
 # Path stuff
@@ -37,3 +37,8 @@ abbr --add yui yarn upgrade-interactive --latest
 # Fish variables
 set -g fish_handle_reflow 1
 set -g fish_greeting
+
+# Force my shell to load (*cough cough* distrobox *cough cough*)
+if test -e $XDG_CONFIG_HOME/fish/functions/fish_prompt.fish
+    source $XDG_CONFIG_HOME/fish/functions/fish_prompt.fish
+end

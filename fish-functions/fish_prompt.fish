@@ -1,4 +1,5 @@
 function fish_prompt
+    set -l prompt_status "$status"
     set -l user_char '>'
     if fish_is_root_user
         set user_char '#'
@@ -13,6 +14,20 @@ function fish_prompt
     if test -n "$DISTROBOX_ENTER_PATH"
         set -a badges (set_color -o yellow)D
     end
+    if test "$prompt_status" -ne 0
+        if test -n "$badges"
+            set -a badges " "
+        end
+        set -a badges (set_color -o red)$prompt_status
+    end
+
+    if test "$CMD_DURATION" -gt 2000 # 2 seconds
+        if test -n "$badges"
+            set -a badges " "
+        end
+        set -a badges (set_color -o magenta)$(pretty_dur $CMD_DURATION)
+    end
+
 
     if test -n "$badges"
         set -a badges " "
