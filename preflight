@@ -24,5 +24,3 @@ then
     echo 'If your sure you know what your doing, you may bypass this with "IGNORE_PREFLIGHT=1".'
     exit 1
 fi
-
-mkdir ~/.config/fish
