@@ -31,6 +31,14 @@ if test -d /opt/procursus
 	set -x LIBRARY_PATH "$LIBRARY_PATH:/opt/procursus/lib"
 end
 
+# Zoxide 
+if type -q zoxide
+    zoxide init fish | source
+    alias cd=z
+else
+    alias z=cd # To aid my muscle memory
+end
+
 # Abbriviations
 abbr --add yui yarn upgrade-interactive --latest
 
